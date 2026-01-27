@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico de Imágenes - VanTop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .diagnostic-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .image-test {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #fafafa;
+        }
+        .image-test img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+        .status {
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .status.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.loading {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        .status.warning {
+            background-color: #ffeaa7;
+            color: #856404;
+            border: 1px solid #fdcb6e;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .instructions {
+            background-color: #e7f3ff;
+            padding: 20px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border-left: 4px solid #007bff;
+        }
+        .error-details {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-family: monospace;
+            font-size: 12px;
+            display: none;
+        }
+        .server-info {
+            background-color: #e8f5e8;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .test-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        .test-button:hover {
+            background-color: #0056b3;
+        }
+        .summary {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Diagnóstico Completo de Imágenes - VanTop</h1>
+    
+    <div class="instructions">
+        <h3>📋 Instrucciones de Diagnóstico:</h3>
+        <ol>
+            <li><strong>Sube este archivo</strong> a tu servidor cPanel en la carpeta raíz</li>
+            <li><strong>Abre la página</strong> en tu navegador: <code>https://tudominio.com/diagnostico-imagenes.html</code></li>
+            <li><strong>Revisa la consola del navegador</strong> (F12 → Console) para errores específicos</li>
+            <li><strong>Verifica los permisos</strong> de las carpetas y archivos en cPanel</li>
+            <li><strong>Comparte los resultados</strong> con el soporte técnico si hay problemas</li>
+        </ol>
+    </div>
+
+    <div class="server-info">
+        <h3>🌐 Información del Servidor</h3>
+        <p><strong>URL actual:</strong> <span id="current-url"></span></p>
+        <p><strong>Protocolo:</strong> <span id="protocol"></span></p>
+        <p><strong>Host:</strong> <span id="host"></span></p>
+        <p><strong>Ruta:</strong> <span id="path"></span></p>
+        <p><strong>User Agent:</strong> <span id="user-agent"></span></p>
+        <p><strong>Timestamp:</strong> <span id="timestamp"></span></p>
+    </div>
+
+    <div class="diagnostic-section">
+        <h2>🖼️ Test de Imágenes Principales</h2>
+        <p>Estas son las imágenes más importantes del sitio:</p>
+        
+        <div class="image-test" data-path="images/logo.png">
+            <img src="images/logo.png?v=1.0.2" alt="Logo" 
+                 onload="handleImageLoad(this)" 
+                 onerror="handleImageError(this)">
+            <div>
+                <strong>Logo Principal:</strong> images/logo.png?v=1.0.2
+                <span class="status loading">⏳ Cargando...</span>
+                <div class="error-details"></div>
+            </div>
+        </div>
+
+        <div class="image-test" data-path="images/van-45grados-frontal.jpg">
+            <img src="images/van-45grados-frontal.jpg?v=1.0.2" alt="Van Frontal" 
+                 onload="handleImageLoad(this)" 
+                 onerror="handleImageError(this)">
+            <div>
+                <strong>Van Frontal:</strong> images/van-45grados-frontal.jpg?v=1.0.2
+                <span class="status loading">⏳ Cargando...</span>
+                <div class="error-details"></div>
+            </div>
+        </div>
+
+        <div class="image-test" data-path="images/driver-van-front.jpeg">
+            <img src="images/driver-van-front.jpeg?v=1.0.2" alt="Van Driver" 
+                 onload="handleImageLoad(this)" 
+                 onerror="handleImageError(this)">
+            <div>
+                <strong>Van Driver:</strong> images/driver-van-front.jpeg?v=1.0.2
+                <span class="status loading">⏳ Cargando...</span>
+                <div class="error-details"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="diagnostic-section">
+        <h2>🎨 Test de Iconos SVG</h2>
+        <p>Los iconos SVG son críticos para la funcionalidad del sitio:</p>
+        
+        <div class="image-test" data-path="images/icons/globe.svg">
+            <img src="images/icons/globe.svg?v=1.0.2" alt="Globe Icon" 
+                 onload="handleImageLoad(this)" 
+                 onerror="handleImageError(this)">
+            <div>
+                <strong>Globe Icon:</strong> images/icons/globe.svg?v=1.0.2
+                <span class="status loading">⏳ Cargando...</span>
+                <div class="error-details"></div>
+            </div>
+        </div>
+
+        <div class="image-test" data-path="images/icons/globe-2.svg">
+            <img src="images/icons/globe-2.svg?v=1.0.2" alt="Globe Icon 2" 
+                 onload="handleImageLoad(this)" 
+                 onerror="handleImageError(this)">
+            <div>
+                <strong>Globe Icon 2:</strong> images/icons/globe-2.svg?v=1.0.2
+                <span class="status loading">⏳ Cargando...</span>
+                <div class="error-details"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="diagnostic-section">
+        <h2>🏳️ Test de Banderas</h2>
+        <p>Las banderas son necesarias para el selector de idiomas:</p>
+        
+        <div class="image-test" data-path="images/flags/spain.svg">
+            <img src="images/flags/spain.svg?v=1.0.2" alt="Spain Flag" 
+                 onload="handleImageLoad(this)" 
+                 onerror="handleImageError(this)">
+            <div>
+                <strong>Spain Flag:</strong> images/flags/spain.svg?v=1.0.2
+                <span class="status loading">⏳ Cargando...</span>
+                <div class="error-details"></div>
+            </div>
+        </div>
+
+        <div class="image-test" data-path="images/flags/eeuu.svg">
+            <img src="images/flags/eeuu.svg?v=1.0.2" alt="USA Flag" 
+                 onload="handleImageLoad(this)" 
+                 onerror="handleImageError(this)">
+            <div>
+                <strong>USA Flag:</strong> images/flags/eeuu.svg?v=1.0.2
+                <span class="status loading">⏳ Cargando...</span>
+                <div class="error-details"></div>
+            </div>
+        </div>
+
+        <div class="image-test" data-path="images/flags/brazil.svg">
+            <img src="images/flags/brazil.svg?v=1.0.2" alt="Brazil Flag" 
+                 onload="handleImageLoad(this)" 
+                 onerror="handleImageError(this)">
+            <div>
+                <strong>Brazil Flag:</strong> images/flags/brazil.svg?v=1.0.2
+                <span class="status loading">⏳ Cargando...</span>
+                <div class="error-details"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="diagnostic-section">
+        <h2>🚐 Test de Imágenes del Vehículo</h2>
+        <p>Estas imágenes son importantes para la galería del vehículo:</p>
+        
+        <div class="image-test" data-path="images/van-interior-normal-rows.png">
+            <img src="images/van-interior-normal-rows.png?v=1.0.2" alt="Interior Normal" 
+                 onload="handleImageLoad(this)" 
+                 onerror="handleImageError(this)">
+            <div>
+                <strong>Interior Normal:</strong> images/van-interior-normal-rows.png?v=1.0.2
+                <span class="status loading">⏳ Cargando...</span>
+                <div class="error-details"></div>
+            </div>
+        </div>
+
+        <div class="image-test" data-path="images/van-interior-trasero.png">
+            <img src="images/van-interior-trasero.png?v=1.0.2" alt="Interior Trasero" 
+                 onload="handleImageLoad(this)" 
+                 onerror="handleImageError(this)">
+            <div>
+                <strong>Interior Trasero:</strong> images/van-interior-trasero.png?v=1.0.2
+                <span class="status loading">⏳ Cargando...</span>
+                <div class="error-details"></div>
+            </div>
+        </div>
+
+        <div class="image-test" data-path="images/van-interior-fronted-rows.jpg">
+            <img src="images/van-interior-fronted-rows.jpg?v=1.0.2" alt="Interior Frontal" 
+                 onload="handleImageLoad(this)" 
+                 onerror="handleImageError(this)">
+            <div>
+                <strong>Interior Frontal:</strong> images/van-interior-fronted-rows.jpg?v=1.0.2
+                <span class="status loading">⏳ Cargando...</span>
+                <div class="error-details"></div>
+            </div>
+        </div>
+
+        <div class="image-test" data-path="images/driver-van-side.jpeg">
+            <img src="images/driver-van-side.jpeg?v=1.0.2" alt="Van Side" 
+                 onload="handleImageLoad(this)" 
+                 onerror="handleImageError(this)">
+            <div>
+                <strong>Van Side:</strong> images/driver-van-side.jpeg?v=1.0.2
+                <span class="status loading">⏳ Cargando...</span>
+                <div class="error-details"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="diagnostic-section">
+        <h2>🔧 Herramientas de Diagnóstico</h2>
+        <button class="test-button" onclick="testAllImages()">🧪 Test Completo</button>
+        <button class="test-button" onclick="showConsoleErrors()">📋 Errores de Consola</button>
+        <button class="test-button" onclick="generateReport()">📄 Generar Reporte</button>
+        <button class="test-button" onclick="clearCache()">🗑️ Limpiar Cache</button>
+    </div>
+
+    <div class="summary" id="summary">
+        <h3>📊 Resumen del Diagnóstico</h3>
+        <p><strong>Total de imágenes:</strong> <span id="total-images">0</span></p>
+        <p><strong>Cargadas correctamente:</strong> <span id="loaded-images">0</span></p>
+        <p><strong>Con errores:</strong> <span id="error-images">0</span></p>
+        <p><strong>Porcentaje de éxito:</strong> <span id="success-rate">0%</span></p>
+    </div>
+
+    <div class="diagnostic-section">
+        <h2>💡 Soluciones Comunes</h2>
+        <div class="instructions">
+            <h4>Si las imágenes no cargan:</h4>
+            <ol>
+                <li><strong>Verifica permisos:</strong> Las imágenes deben tener permisos 644, las carpetas 755</li>
+                <li><strong>Revisa la estructura:</strong> Asegúrate de que la carpeta 'images' esté en la raíz</li>
+                <li><strong>Limpia el cache:</strong> Usa Ctrl+F5 o limpia el cache del navegador</li>
+                <li><strong>Verifica .htaccess:</strong> Asegúrate de que el archivo .htaccess esté presente</li>
+                <li><strong>Contacta soporte:</strong> Si el problema persiste, contacta a tu proveedor de hosting</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        let totalImages = 0;
+        let loadedImages = 0;
+        let errorImages = 0;
+        let consoleErrors = [];
+
+        // Mostrar información del servidor
+        document.getElementById('current-url').textContent = window.location.href;
+        document.getElementById('protocol').textContent = window.location.protocol;
+        document.getElementById('host').textContent = window.location.host;
+        document.getElementById('path').textContent = window.location.pathname;
+        document.getElementById('user-agent').textContent = navigator.userAgent;
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
+
+        // Capturar errores de consola
+        window.addEventListener('error', function(e) {
+            consoleErrors.push({
+                message: e.message,
+                filename: e.filename,
+                lineno: e.lineno,
+                colno: e.colno,
+                error: e.error
+            });
+        });
+
+        function handleImageLoad(img) {
+            const container = img.closest('.image-test');
+            const status = container.querySelector('.status');
+            status.className = 'status success';
+            status.textContent = '✅ Cargada';
+            loadedImages++;
+            updateSummary();
+        }
+
+        function handleImageError(img) {
+            const container = img.closest('.image-test');
+            const status = container.querySelector('.status');
+            const errorDetails = container.querySelector('.error-details');
+            
+            status.className = 'status error';
+            status.textContent = '❌ Error';
+            
+            // Mostrar detalles del error
+            errorDetails.style.display = 'block';
+            errorDetails.innerHTML = `
+                <strong>Error:</strong> No se pudo cargar la imagen<br>
+                <strong>Ruta:</strong> ${img.src}<br>
+                <strong>Alt:</strong> ${img.alt}<br>
+                <strong>Timestamp:</strong> ${new Date().toLocaleString()}
+            `;
+            
+            errorImages++;
+            updateSummary();
+        }
+
+        function updateSummary() {
+            totalImages = loadedImages + errorImages;
+            const successRate = totalImages > 0 ? Math.round((loadedImages / totalImages) * 100) : 0;
+            
+            document.getElementById('total-images').textContent = totalImages;
+            document.getElementById('loaded-images').textContent = loadedImages;
+            document.getElementById('error-images').textContent = errorImages;
+            document.getElementById('success-rate').textContent = successRate + '%';
+            
+            // Actualizar color del resumen
+            const summary = document.getElementById('summary');
+            if (successRate === 100) {
+                summary.style.backgroundColor = '#d4edda';
+                summary.style.borderLeftColor = '#28a745';
+            } else if (successRate >= 80) {
+                summary.style.backgroundColor = '#fff3cd';
+                summary.style.borderLeftColor = '#ffc107';
+            } else {
+                summary.style.backgroundColor = '#f8d7da';
+                summary.style.borderLeftColor = '#dc3545';
+            }
+        }
+
+        function testAllImages() {
+            console.log('🧪 Iniciando test completo de imágenes...');
+            const images = document.querySelectorAll('img');
+            console.log(`Total de imágenes encontradas: ${images.length}`);
+            
+            images.forEach((img, index) => {
+                setTimeout(() => {
+                    console.log(`Test ${index + 1}/${images.length}: ${img.src}`);
+                }, index * 100);
+            });
+        }
+
+        function showConsoleErrors() {
+            console.log('📋 Errores capturados:');
+            if (consoleErrors.length === 0) {
+                console.log('✅ No se han capturado errores de consola');
+            } else {
+                consoleErrors.forEach((error, index) => {
+                    console.log(`Error ${index + 1}:`, error);
+                });
+            }
+        }
+
+        function generateReport() {
+            const report = {
+                timestamp: new Date().toISOString(),
+                url: window.location.href,
+                userAgent: navigator.userAgent,
+                totalImages: totalImages,
+                loadedImages: loadedImages,
+                errorImages: errorImages,
+                successRate: totalImages > 0 ? Math.round((loadedImages / totalImages) * 100) : 0,
+                consoleErrors: consoleErrors
+            };
+            
+            console.log('📄 Reporte de diagnóstico:', report);
+            alert('Reporte generado en la consola del navegador (F12 → Console)');
+        }
+
+        function clearCache() {
+            if ('caches' in window) {
+                caches.keys().then(names => {
+                    names.forEach(name => {
+                        caches.delete(name);
+                    });
+                });
+            }
+            localStorage.clear();
+            sessionStorage.clear();
+            alert('Cache limpiado. Recarga la página para ver los cambios.');
+        }
+
+        // Inicializar contadores
+        setTimeout(() => {
+            const images = document.querySelectorAll('img');
+            totalImages = images.length;
+            updateSummary();
+        }, 1000);
+    </script>
+</body>
+</html> 

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Versión - VanTop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .version {
+            font-size: 18px;
+            margin: 20px 0;
+            padding: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🔄 Actualizar Versión de Archivos</h2>
+        <p>Esta herramienta actualiza automáticamente los números de versión en los archivos CSS y JS para evitar problemas de cache.</p>
+        
+        <div class="version">
+            <strong>Versión actual:</strong> <span id="currentVersion">1.0.2</span>
+        </div>
+        
+        <button onclick="updateVersion()">📝 Actualizar Versión</button>
+        <button onclick="clearCache()">🧹 Limpiar Cache</button>
+        <button onclick="goToMain()">🏠 Ir al Sitio Principal</button>
+        
+        <div id="status"></div>
+        
+        <hr style="margin: 30px 0;">
+        
+        <h3>📋 Instrucciones para cPanel:</h3>
+        <ol style="text-align: left;">
+            <li>Sube todos los archivos a tu servidor via SFTP</li>
+            <li>Incluye el archivo <code>.htaccess</code></li>
+            <li>Si hay problemas de cache, usa "Limpiar Cache"</li>
+            <li>Para cambios importantes, usa "Actualizar Versión"</li>
+        </ol>
+    </div>
+
+    <script>
+        let currentVersion = "1.0.2";
+        
+        function updateVersion() {
+            // Incrementar versión
+            let parts = currentVersion.split('.');
+            parts[2] = parseInt(parts[2]) + 1;
+            currentVersion = parts.join('.');
+            
+            document.getElementById('currentVersion').textContent = currentVersion;
+            document.getElementById('status').innerHTML = '<p style="color: green;">✅ Versión actualizada a ' + currentVersion + '</p>';
+            
+            // Mostrar instrucciones
+            setTimeout(() => {
+                alert('Versión actualizada a ' + currentVersion + '\n\nAhora actualiza manualmente los números de versión en index.html:\n\ncss/styles.css?v=' + currentVersion + '\ncss/responsive.css?v=' + currentVersion + '\ncss/animations.css?v=' + currentVersion + '\ncss/svg-styles.css?v=' + currentVersion + '\njs/main.js?v=' + currentVersion + '\njs/language.js?v=' + currentVersion + '\njs/form-validation.js?v=' + currentVersion);
+            }, 500);
+        }
+        
+        function clearCache() {
+            if ('caches' in window) {
+                caches.keys().then(function(names) {
+                    for (let name of names) {
+                        caches.delete(name);
+                    }
+                });
+            }
+            document.getElementById('status').innerHTML = '<p style="color: green;">✅ Cache limpiado</p>';
+        }
+        
+        function goToMain() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html> 

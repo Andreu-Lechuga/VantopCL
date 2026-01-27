@@ -1,0 +1,127 @@
+{
+    "nav": {
+        "services": "Services",
+        "vehicle": "Vehicle",
+        "driver": "Driver",
+        "booking": "Booking",
+        "contact": "Contact"
+    },
+    "hero": {
+        "title-line1": "PRIVATE TRANSPORTATION",
+        "title-line2": "OF PASSENGERS",
+        "subtitle": "Quality, Trust and Security.",
+        "location": "Santiago de Chile",
+        "cta": "Book Now",
+        "availability": "Check Availability"
+    },
+    "services": {
+        "title": "VANTOP Services",
+        "airport": {
+            "title": "Airport Transfer",
+            "desc": "Transfers to and from the airport 24/7 and emergencies"
+        },
+        "events": {
+            "title": "Corporate Transfers",
+            "desc": "Company events, conferences and special occasions"
+        },
+        "hourly": {
+            "title": "Hourly Service",
+            "desc": "Transportation available by hours, within and outside Santiago de Chile"
+        },
+        "city": {
+            "title": "Tourism & Eco-Tourism",
+            "desc": "Tourist tours of the main attractions in the region. City tour, snow trips, coast and mountain range, wine route and special interests."
+        },
+        "private": {
+            "title": "Private Transfers",
+            "desc": "Personalized service for private trips, medical appointments, shopping and family transfers with maximum privacy and comfort"
+        }
+    },
+    "vehicle": {
+        "title": "Van Mercedes Benz V-Class 220",
+        "model": "Features",
+        "feature1": "Capacity up to 7 passengers",
+        "feature2": "Tinted windows",
+        "feature3": "Air conditioned cabin",
+        "feature4": "3-point safety belts",
+        "feature5": "Airbags",
+        "feature6": "Reclining leather seats",
+        "feature7": "Child seat anchoring system (ISOFIX standard)",
+        "description": "Our black Mercedes Benz V 220 offers the perfect balance between elegance, comfort and functionality. With options for 2 to 3 rows of seats or limousine-style facing seats, we adapt the space according to your specific needs."
+    },
+    "driver": {
+        "title": "Your Driver",
+        "name": "Juan Pérez",
+        "age": "35 years old",
+        "license": "Professional A1 license",
+        "experience": "10+ years of experience",
+        "description": "Professional driver with extensive experience in private transportation. Committed to providing safe, punctual and quality service to all clients."
+    },
+    "booking": {
+        "title": "Book Your Service",
+        "form": {
+            "name": "Full Name",
+            "email": "Email",
+            "phone": "Phone",
+            "serviceType": "Service Type",
+            "selectService": "Select service",
+            "airport": "Airport Transportation",
+            "event": "Event",
+            "hourly": "By Hours",
+            "daily": "By Days",
+            "city": "Within the City",
+            "intercity": "Outside the City",
+            "date": "Date",
+            "time": "Time",
+            "origin": "Origin",
+            "destination": "Destination",
+            "comments": "Additional Comments",
+            "submit": "Submit Booking"
+        }
+    },
+    "contact": {
+        "title": "Contact",
+        "phone": {
+            "title": "Phone",
+            "value": "+56 9 7863 6483"
+        },
+        "email": {
+            "title": "Email",
+            "value": "contacto@vantop.cl"
+        },
+        "instagram": {
+            "title": "Instagram",
+            "value": "@vantop_chile"
+        },
+        "form": {
+            "title": "Send us a Message",
+            "name": "Name",
+            "email": "Email",
+            "message": "Message",
+            "submit": "Send"
+        }
+    },
+    "footer": {
+        "home": "Home",
+        "services": "Services",
+        "vehicle": "Vehicle",
+        "driver": "Driver",
+        "booking": "Booking",
+        "contact": "Contact",
+        "copyright": "© 2025 VanTop. All rights reserved."
+    },
+    "validation": {
+        "required": "This field is required",
+        "email": "Please enter a valid email address",
+        "phone": "Please enter a valid phone number",
+        "date": "Please select a valid date",
+        "time": "Please select a valid time",
+        "minLength": "This field must have at least {min} characters",
+        "maxLength": "This field cannot have more than {max} characters",
+        "future": "The date must be in the future"
+    },
+    "alerts": {
+        "bookingSuccess": "Thank you for your booking! We will contact you soon to confirm the details.",
+        "contactSuccess": "Thank you for your message! We will respond as soon as possible."
+    }
+}

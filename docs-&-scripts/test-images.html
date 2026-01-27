@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test de Imágenes - VanTop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .image-test {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .image-test img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 1px solid #ccc;
+        }
+        .status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status.success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status.error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .status.loading {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .instructions {
+            background-color: #e7f3ff;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test de Carga de Imágenes - VanTop</h1>
+    
+    <div class="instructions">
+        <h3>📋 Instrucciones:</h3>
+        <ol>
+            <li>Sube este archivo a tu servidor cPanel</li>
+            <li>Abre la página en tu navegador</li>
+            <li>Verifica que todas las imágenes se muestren correctamente</li>
+            <li>Si alguna imagen no se muestra, revisa la consola del navegador (F12)</li>
+        </ol>
+    </div>
+
+    <div class="test-section">
+        <h2>🖼️ Imágenes Principales</h2>
+        
+        <div class="image-test">
+            <img src="images/logo.png" alt="Logo" onload="this.parentElement.querySelector('.status').className='status success'; this.parentElement.querySelector('.status').textContent='✅ Cargada'" onerror="this.parentElement.querySelector('.status').className='status error'; this.parentElement.querySelector('.status').textContent='❌ Error'">
+            <div>
+                <strong>Logo:</strong> images/logo.png
+                <span class="status loading">⏳ Cargando...</span>
+            </div>
+        </div>
+
+        <div class="image-test">
+            <img src="images/van-45grados-frontal.jpg" alt="Van Frontal" onload="this.parentElement.querySelector('.status').className='status success'; this.parentElement.querySelector('.status').textContent='✅ Cargada'" onerror="this.parentElement.querySelector('.status').className='status error'; this.parentElement.querySelector('.status').textContent='❌ Error'">
+            <div>
+                <strong>Van Frontal:</strong> images/van-45grados-frontal.jpg
+                <span class="status loading">⏳ Cargando...</span>
+            </div>
+        </div>
+
+        <div class="image-test">
+            <img src="images/driver-van-front.jpeg" alt="Van Driver" onload="this.parentElement.querySelector('.status').className='status success'; this.parentElement.querySelector('.status').textContent='✅ Cargada'" onerror="this.parentElement.querySelector('.status').className='status error'; this.parentElement.querySelector('.status').textContent='❌ Error'">
+            <div>
+                <strong>Van Driver:</strong> images/driver-van-front.jpeg
+                <span class="status loading">⏳ Cargando...</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🎨 Iconos SVG</h2>
+        
+        <div class="image-test">
+            <img src="images/icons/globe.svg" alt="Globe Icon" onload="this.parentElement.querySelector('.status').className='status success'; this.parentElement.querySelector('.status').textContent='✅ Cargada'" onerror="this.parentElement.querySelector('.status').className='status error'; this.parentElement.querySelector('.status').textContent='❌ Error'">
+            <div>
+                <strong>Globe Icon:</strong> images/icons/globe.svg
+                <span class="status loading">⏳ Cargando...</span>
+            </div>
+        </div>
+
+        <div class="image-test">
+            <img src="images/icons/globe-2.svg" alt="Globe Icon 2" onload="this.parentElement.querySelector('.status').className='status success'; this.parentElement.querySelector('.status').textContent='✅ Cargada'" onerror="this.parentElement.querySelector('.status').className='status error'; this.parentElement.querySelector('.status').textContent='❌ Error'">
+            <div>
+                <strong>Globe Icon 2:</strong> images/icons/globe-2.svg
+                <span class="status loading">⏳ Cargando...</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🏳️ Banderas</h2>
+        
+        <div class="image-test">
+            <img src="images/flags/spain.svg" alt="Spain Flag" onload="this.parentElement.querySelector('.status').className='status success'; this.parentElement.querySelector('.status').textContent='✅ Cargada'" onerror="this.parentElement.querySelector('.status').className='status error'; this.parentElement.querySelector('.status').textContent='❌ Error'">
+            <div>
+                <strong>Spain Flag:</strong> images/flags/spain.svg
+                <span class="status loading">⏳ Cargando...</span>
+            </div>
+        </div>
+
+        <div class="image-test">
+            <img src="images/flags/eeuu.svg" alt="USA Flag" onload="this.parentElement.querySelector('.status').className='status success'; this.parentElement.querySelector('.status').textContent='✅ Cargada'" onerror="this.parentElement.querySelector('.status').className='status error'; this.parentElement.querySelector('.status').textContent='❌ Error'">
+            <div>
+                <strong>USA Flag:</strong> images/flags/eeuu.svg
+                <span class="status loading">⏳ Cargando...</span>
+            </div>
+        </div>
+
+        <div class="image-test">
+            <img src="images/flags/brazil.svg" alt="Brazil Flag" onload="this.parentElement.querySelector('.status').className='status success'; this.parentElement.querySelector('.status').textContent='✅ Cargada'" onerror="this.parentElement.querySelector('.status').className='status error'; this.parentElement.querySelector('.status').textContent='❌ Error'">
+            <div>
+                <strong>Brazil Flag:</strong> images/flags/brazil.svg
+                <span class="status loading">⏳ Cargando...</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🚐 Imágenes del Vehículo</h2>
+        
+        <div class="image-test">
+            <img src="images/van-interior-normal-rows.png" alt="Interior Normal" onload="this.parentElement.querySelector('.status').className='status success'; this.parentElement.querySelector('.status').textContent='✅ Cargada'" onerror="this.parentElement.querySelector('.status').className='status error'; this.parentElement.querySelector('.status').textContent='❌ Error'">
+            <div>
+                <strong>Interior Normal:</strong> images/van-interior-normal-rows.png
+                <span class="status loading">⏳ Cargando...</span>
+            </div>
+        </div>
+
+        <div class="image-test">
+            <img src="images/van-interior-trasero.png" alt="Interior Trasero" onload="this.parentElement.querySelector('.status').className='status success'; this.parentElement.querySelector('.status').textContent='✅ Cargada'" onerror="this.parentElement.querySelector('.status').className='status error'; this.parentElement.querySelector('.status').textContent='❌ Error'">
+            <div>
+                <strong>Interior Trasero:</strong> images/van-interior-trasero.png
+                <span class="status loading">⏳ Cargando...</span>
+            </div>
+        </div>
+
+        <div class="image-test">
+            <img src="images/van-interior-fronted-rows.jpg" alt="Interior Frontal" onload="this.parentElement.querySelector('.status').className='status success'; this.parentElement.querySelector('.status').textContent='✅ Cargada'" onerror="this.parentElement.querySelector('.status').className='status error'; this.parentElement.querySelector('.status').textContent='❌ Error'">
+            <div>
+                <strong>Interior Frontal:</strong> images/van-interior-fronted-rows.jpg
+                <span class="status loading">⏳ Cargando...</span>
+            </div>
+        </div>
+
+        <div class="image-test">
+            <img src="images/driver-van-side.jpeg" alt="Van Side" onload="this.parentElement.querySelector('.status').className='status success'; this.parentElement.querySelector('.status').textContent='✅ Cargada'" onerror="this.parentElement.querySelector('.status').className='status error'; this.parentElement.querySelector('.status').textContent='❌ Error'">
+            <div>
+                <strong>Van Side:</strong> images/driver-van-side.jpeg
+                <span class="status loading">⏳ Cargando...</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>🔧 Información de Diagnóstico</h2>
+        <p><strong>URL actual:</strong> <span id="current-url"></span></p>
+        <p><strong>Protocolo:</strong> <span id="protocol"></span></p>
+        <p><strong>Host:</strong> <span id="host"></span></p>
+        <p><strong>Ruta:</strong> <span id="path"></span></p>
+    </div>
+
+    <script>
+        // Mostrar información de diagnóstico
+        document.getElementById('current-url').textContent = window.location.href;
+        document.getElementById('protocol').textContent = window.location.protocol;
+        document.getElementById('host').textContent = window.location.host;
+        document.getElementById('path').textContent = window.location.pathname;
+
+        // Función para verificar si todas las imágenes se cargaron
+        setTimeout(() => {
+            const images = document.querySelectorAll('img');
+            const loadedImages = document.querySelectorAll('.status.success');
+            const errorImages = document.querySelectorAll('.status.error');
+            
+            console.log(`Total de imágenes: ${images.length}`);
+            console.log(`Imágenes cargadas: ${loadedImages.length}`);
+            console.log(`Imágenes con error: ${errorImages.length}`);
+            
+            if (errorImages.length > 0) {
+                console.error('❌ Algunas imágenes no se pudieron cargar. Revisa las rutas y permisos.');
+            } else {
+                console.log('✅ Todas las imágenes se cargaron correctamente.');
+            }
+        }, 3000);
+    </script>
+</body>
+</html> 

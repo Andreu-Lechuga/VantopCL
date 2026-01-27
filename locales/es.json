@@ -1,0 +1,127 @@
+{
+    "nav": {
+        "services": "Servicios",
+        "vehicle": "Vehículo",
+        "driver": "Conductor",
+        "booking": "Reserva",
+        "contact": "Contacto"
+    },
+    "hero": {
+        "title-line1": "TRANSPORTE PRIVADO",
+        "title-line2": "DE PASAJEROOOS",
+        "subtitle": "Calidad, Confianza y Seguridad.",
+        "location": "Santiago de Chile",
+        "cta": "Reserva via Whatsapp",
+        "availability": "Consulta Disponibilidad"
+    },
+    "services": {
+        "title": "Servicios VANTOP",
+        "airport": {
+            "title": "Transfer Aeropuerto",
+            "desc": "Traslados desde y hacia el aeropuerto 24/7 y urgencias"
+        },
+        "events": {
+            "title": "Traslados Corporativos",
+            "desc": "Eventos de empresas, congresos y ocasiones especiales"
+        },
+        "hourly": {
+            "title": "Servicio por Horas",
+            "desc": "Transporte disponible por horas, dentro y fuera de Santiago de Chile"
+        },
+        "city": {
+            "title": "Turismo & Eco-Turismo",
+            "desc": "Recorridos turísticos por los principales atractivos de la region. City tour, paseos a la nieve, costa y coordillera, ruta de vinos e intereses especiales."
+        },
+        "private": {
+            "title": "Traslados Particulares",
+            "desc": "Servicio personalizado para viajes privados, citas médicas, compras y traslados familiares con máxima privacidad y confort"
+        }
+    },
+    "vehicle": {
+        "title": "Van Mercedes Benz V-Class 220",
+        "model": "Características",
+        "feature1": "Capacidad hasta 7 pasajeros",
+        "feature2": "Vidrios polarizados",
+        "feature3": "Cabina climatizada",
+        "feature4": "Cinturones de seguridad de 3 puntas",
+        "feature5": "Airbags",
+        "feature6": "Butacas de cuero reclinables",
+        "feature7": "Sistema de anclaje para sillas de niños (estándar ISOFIX)",
+        "description": "Nuestra Mercedes V220 negra ofrece el equilibrio perfecto entre elegancia, comodidad y funcionalidad. Con opciones de 2 a 3 filas de asientos o asientos enfrentados estilo limosina, adaptamos el espacio según sus necesidades específicas."
+    },
+    "driver": {
+        "title": "Su Conductor",
+        "name": "Juan Pérez",
+        "age": "35 años",
+        "license": "Licencia profesional A1",
+        "experience": "10+ años de experiencia",
+        "description": "Conductor profesional con amplia experiencia en transporte privado. Comprometido con brindar un servicio seguro, puntual y de calidad a todos los clientes."
+    },
+    "booking": {
+        "title": "Reserva Tu Servicio",
+        "form": {
+            "name": "Nombre Completo",
+            "email": "Correo Electrónico",
+            "phone": "Teléfono",
+            "serviceType": "Tipo de Servicio",
+            "selectService": "Seleccionar servicio",
+            "airport": "Transporte Aeropuerto",
+            "event": "Evento",
+            "hourly": "Por Horas",
+            "daily": "Por Días",
+            "city": "Dentro de la Ciudad",
+            "intercity": "Fuera de la Ciudad",
+            "date": "Fecha",
+            "time": "Hora",
+            "origin": "Origen",
+            "destination": "Destino",
+            "comments": "Comentarios Adicionales",
+            "submit": "Enviar Reserva"
+        }
+    },
+    "contact": {
+        "title": "Contacto",
+        "phone": {
+            "title": "Teléfono",
+            "value": "+56 9 7863 6483"
+        },
+        "email": {
+            "title": "Correo Electrónico",
+            "value": "contacto@vantop.cl"
+        },
+        "instagram": {
+            "title": "Instagram",
+            "value": "@vantop_chile"
+        },
+        "form": {
+            "title": "Envíanos un Mensaje",
+            "name": "Nombre",
+            "email": "Correo Electrónico",
+            "message": "Mensaje",
+            "submit": "Enviar"
+        }
+    },
+    "footer": {
+        "home": "Inicio",
+        "services": "Servicios",
+        "vehicle": "Vehículo",
+        "driver": "Conductor",
+        "booking": "Reserva",
+        "contact": "Contacto",
+        "copyright": "© 2025 VanTop. Todos los derechos reservados."
+    },
+    "validation": {
+        "required": "Este campo es obligatorio",
+        "email": "Por favor, introduce un correo electrónico válido",
+        "phone": "Por favor, introduce un número de teléfono válido",
+        "date": "Por favor, selecciona una fecha válida",
+        "time": "Por favor, selecciona una hora válida",
+        "minLength": "Este campo debe tener al menos {min} caracteres",
+        "maxLength": "Este campo no puede tener más de {max} caracteres",
+        "future": "La fecha debe ser futura"
+    },
+    "alerts": {
+        "bookingSuccess": "¡Gracias por tu reserva! Te contactaremos pronto para confirmar los detalles.",
+        "contactSuccess": "¡Gracias por tu mensaje! Te responderemos lo antes posible."
+    }
+}

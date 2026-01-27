@@ -1,0 +1,207 @@
+/* 
+ * VanTop - Servicio de Transporte Privado
+ * Estilos específicos para SVG
+ */
+
+/* Reglas generales para todos los SVG */
+svg {
+    /* Asegura que los SVG se escalen correctamente */
+    width: 100%;
+    height: auto;
+    /* Mejora la calidad de renderizado */
+    shape-rendering: geometricPrecision;
+    /* Mejora el texto dentro de SVG */
+    text-rendering: optimizeLegibility;
+    /* Asegura que los SVG sean accesibles */
+    overflow: visible;
+}
+
+/* Optimización para SVG inline */
+svg:not(:root) {
+    overflow: hidden;
+}
+
+/* Reglas para SVG como imágenes */
+img[src$=".svg"] {
+    /* Asegura que las imágenes SVG se escalen correctamente */
+    width: 100%;
+    height: auto;
+    /* Evita pixelación al escalar */
+    image-rendering: optimizeQuality;
+}
+
+/* Reglas específicas para iconos SVG */
+.globe-icon {
+    /* Tamaño específico para el icono de globo */
+    width: 24px;
+    height: 24px;
+    /* Asegurar que el SVG se muestre correctamente */
+    display: inline-block;
+    /* Asegurar que el SVG se escale correctamente */
+    max-width: 100%;
+    /* Evitar que el SVG ocupe toda la pantalla */
+    object-fit: contain;
+    /* Transición suave para cambios de color o tamaño */
+    transition: transform 0.3s ease, filter 0.3s ease;
+    /* Cambiar color de negro a blanco usando filtros CSS */
+    filter: brightness(0) invert(1);
+}
+
+/* Efecto hover para iconos SVG */
+.globe-icon:hover {
+    /* Ligero aumento de tamaño al pasar el cursor */
+    transform: scale(1.1);
+}
+
+/* Reglas específicas para banderas SVG */
+.flag-icon {
+    /* Tamaño específico para banderas */
+    width: 25px;
+    height: auto;
+    /* Bordes suaves */
+    border-radius: 2px;
+    /* Sombra sutil para dar profundidad */
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
+    /* Transición suave para efectos hover */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Efecto hover para banderas SVG */
+.flag-icon:hover {
+    /* Ligero aumento de tamaño y sombra más pronunciada */
+    transform: scale(1.05);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Optimización para SVG en menús desplegables */
+.submenu .flag-icon {
+    /* Asegurar que las banderas en submenús tengan tamaño consistente */
+    width: 25px;
+    height: auto;
+    /* Centrar la bandera */
+    display: block;
+    margin: 0 auto;
+}
+
+/* Soporte para SVG en diferentes navegadores */
+@supports (mask-image: url('#')) {
+    /* Técnica moderna para cambiar color de SVG monocromáticos */
+    .svg-icon-color {
+        mask-image: var(--svg-url);
+        mask-size: cover;
+        background-color: currentColor;
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Fallback para navegadores que no soportan mask-image */
+@supports not (mask-image: url('#')) {
+    .svg-icon-color {
+        /* Usar filtros para cambiar color como alternativa */
+        filter: var(--svg-filter);
+    }
+}
+
+/* Animaciones para SVG */
+@keyframes svgRotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes svgPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Eliminada la regla redundante para el icono de globo en hover */
+
+/* Optimización para dispositivos de alta resolución */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .flag-icon, .globe-icon {
+        /* Asegurar que los SVG se vean nítidos en pantallas retina */
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* Optimización para dispositivos móviles */
+@media screen and (max-width: 767px) {
+    .flag-icon {
+        /* Ajustar tamaño para móviles - Aumentado para mejor visibilidad */
+        width: 28px;
+        /* Mejorar la sombra para mayor contraste */
+        filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+    }
+    
+    .globe-icon {
+        /* Ajustar tamaño para móviles */
+        width: 24px;
+        height: 24px;
+        /* Mantener el filtro para color blanco en móvil */
+        filter: brightness(0) invert(1);
+    }
+    
+    .globe-icon:hover {
+        /* Mantener el mismo efecto hover en móvil */
+        transform: scale(1.1);
+    }
+    
+    /* Mejorar la interacción táctil para las banderas */
+    .submenu .submenu-link {
+        transition: background-color 0.3s ease;
+    }
+    
+    .submenu .submenu-link:active {
+        background-color: var(--color-accent-light);
+    }
+}
+
+/* Optimización para dispositivos móviles pequeños */
+@media screen and (max-width: 424px) {
+    .flag-icon {
+        /* Ajustar tamaño para móviles pequeños - Aumentado para mejor visibilidad */
+        width: 25px;
+    }
+    
+    .globe-icon {
+        /* Ajustar tamaño para móviles pequeños */
+        width: 22px;
+        height: 22px;
+        /* Mantener el filtro para color blanco en móvil pequeño */
+        filter: brightness(0) invert(1);
+    }
+    
+    .globe-icon:hover {
+        /* Mantener el mismo efecto hover en móvil pequeño */
+        transform: scale(1.1);
+    }
+}
+
+
+
+/* Mejorar contraste para SVG en modo oscuro si se implementa */
+@media (prefers-color-scheme: dark) {
+    .flag-icon {
+        /* Aumentar ligeramente el brillo en modo oscuro */
+        filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)) brightness(1.05);
+    }
+}
+
+/* Desactivar animaciones para usuarios que prefieren movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    .flag-icon, .globe-icon {
+        transition: none !important;
+        animation: none !important;
+    }
+}
