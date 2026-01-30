@@ -811,6 +811,15 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: var(--gap-xl);
+        justify-items: center;
+    }
+    
+    /* En tablet, resetear el posicionamiento especial de las cajas 4 y 5 */
+    .service-card:nth-child(4),
+    .service-card:nth-child(5) {
+        grid-column: auto;
+        margin-left: 0;
+        margin-right: 0;
     }
     
     /* Vehicle Section - Cambio estructural */
