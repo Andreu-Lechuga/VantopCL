@@ -1028,7 +1028,7 @@ img {
 .hero {
     height: 100vh;
     min-height: 600px;
-    background-image: linear-gradient(rgba(0, 0, 0, var(--hero-overlay-opacity)), rgba(0, 0, 0, var(--hero-overlay-opacity))), url('../images/mercedes-bens-V220-airport.webp');
+    background-image: linear-gradient(rgba(0, 0, 0, var(--hero-overlay-opacity)), rgba(0, 0, 0, var(--hero-overlay-opacity))), url('../images/mercedes-bens-V220-airport.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
